@@ -15,6 +15,8 @@ import { FooterComponent } from './molecules/footer/footer.component';
 import { MovieBlockComponent } from './organisms/movie-block/movie-block.component';
 import { MainLayoutComponent } from './templates/main-layout/main-layout.component';
 import { HomeComponent } from './pages/home/home.component';
+import { HeartComponent } from './atoms/heart/heart.component';
+import { FavoriteButtonComponent } from './molecules/favorite-button/favorite-button.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { HomeComponent } from './pages/home/home.component';
     FooterComponent,
     MovieBlockComponent,
     MainLayoutComponent,
-    HomeComponent
+    HomeComponent,
+    HeartComponent,
+    FavoriteButtonComponent
   ],
   imports: [
     BrowserModule
