@@ -1,6 +1,6 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { updateMoviesList, updateSelectedMovie } from 'src/app/store/movies-data.actions';
+import { updateSelectedMovie } from 'src/app/store/movies-data.actions';
 
 @Component({
   selector: 'app-search-bar',
@@ -11,10 +11,6 @@ export class SearchBarComponent {
   searchTerm: string = '';
   private apiKey = '&apikey=11e92a47';
   public url = 'http://www.omdbapi.com/?t='
-  /* Search url */
-  /*
-  public url = 'http://www.omdbapi.com/?s='
-  */
 
   constructor(private store: Store) {}
 
@@ -26,13 +22,14 @@ export class SearchBarComponent {
     try {
       const response = await fetch(this.url + this.searchTerm + this.apiKey );
       const data = await response.json();
-      /* Adapter for search */
-      /* const searchResults = data?.Search || [];
-      this.store.dispatch(updateMoviesList({searchResults})); */
-      const selectedMovie = data || {};
+      if (data.Response === "False") {
+        throw new Error(data.Error);
+      }
+
+      const selectedMovie = data;
       this.store.dispatch(updateSelectedMovie({selectedMovie}));
     } catch (error) {
-      console.error('Error fetching movies:', error);
+      console.error( error);
     }
   }
 }
