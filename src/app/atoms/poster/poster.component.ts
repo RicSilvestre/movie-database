@@ -7,4 +7,5 @@ import { Component, Input } from '@angular/core';
 })
 export class PosterComponent {
   @Input() src: string = '';
+  @Input() hasPoster: boolean = true;
 }

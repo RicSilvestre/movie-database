@@ -1,0 +1,26 @@
+img {
+  max-width: 100%;
+
+  &.placeholder-image {
+    position: relative;
+
+    &, &::before {
+      width: 300px;
+      height: 420px;
+    }
+
+    &::before {
+      content: "";
+      display: block;
+      background-color: #CCC;
+    }
+
+    &::after {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      content: "No Poster Found";
+      transform: translate(-50%, -50%);
+    }
+  }
+}

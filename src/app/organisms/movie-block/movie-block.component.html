@@ -1,9 +1,9 @@
-<section *ngIf="selectedMovie$ | async as selectedMovie">
+<section class="movie-block" *ngIf="selectedMovie$ | async as selectedMovie">
   <div>
     <app-title-w-text title="{{selectedMovie?.Title}}">{{ selectedMovie.Plot }}</app-title-w-text>
     <!-- code for iteration */ -->
     <!-- <div *ngFor="let movie of movies$ | async"> -->
-    <div>
+    <div class="movie-block_additional-info">
       <app-subtitle-w-element subtitle="Actors">{{ selectedMovie.Actors }}</app-subtitle-w-element>
       <app-subtitle-w-element subtitle="Review">
         <app-star *ngFor="let star of [].constructor(5)"></app-star>
@@ -12,6 +12,6 @@
     <app-favorite-button content="Favorite"></app-favorite-button>
   </div>
   <div>
-    <app-poster src="{{selectedMovie.Poster}}"></app-poster>
+    <app-poster src="{{selectedMovie.Poster}}" [hasPoster]="selectedMovie.Poster === 'N/A' ? false : true"></app-poster>
   </div>
 </section>

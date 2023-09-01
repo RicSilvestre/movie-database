@@ -1,0 +1,26 @@
+@import 'node_modules/bootstrap/scss/bootstrap';
+
+
+.movie-block {
+  display: grid;
+  text-align: center;
+  gap: 1.5rem;
+
+  &_additional-info {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+  }
+
+  @include media-breakpoint-up(md) {
+    grid-template-columns: 1fr auto;
+    text-align: start;
+
+    &_additional-info {
+      justify-content: start;
+    }
+  }
+}
+
