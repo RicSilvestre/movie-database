@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-subtitle-w-element',
@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./subtitle-w-element.component.scss']
 })
 export class SubtitleWElementComponent {
-  subtitle: string = 'hello';
+  @Input() subtitle: string = '';
 }

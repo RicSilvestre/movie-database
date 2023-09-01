@@ -1,5 +1,5 @@
 <form action="">
-  <app-input type="search" placeholder="Insert a movie title here"></app-input>
-  <app-input type="submit" [isButton]="true" buttonModifier="primary"></app-input>
-  <app-input type="reset" [isButton]="true" buttonModifier="danger"></app-input>
+  <app-input type="search" (input)="searchTerm=getInput($event)" placeholder="Insert a movie title here"></app-input>
+  <app-input type="button" (click)="fetchMoviesData()" [isButton]="true" buttonModifier="primary" value="Search"></app-input>
+  <app-input type="reset" [isButton]="true" buttonModifier="danger" value="Reset"></app-input>
 </form>

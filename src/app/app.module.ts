@@ -17,6 +17,9 @@ import { MainLayoutComponent } from './templates/main-layout/main-layout.compone
 import { HomeComponent } from './pages/home/home.component';
 import { HeartComponent } from './atoms/heart/heart.component';
 import { FavoriteButtonComponent } from './molecules/favorite-button/favorite-button.component';
+import { StoreModule } from '@ngrx/store';
+import { moviesDataReducer } from './store/movies-data.reducer';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 @NgModule({
   declarations: [
@@ -38,7 +41,13 @@ import { FavoriteButtonComponent } from './molecules/favorite-button/favorite-bu
     FavoriteButtonComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    StoreModule.forRoot({
+      moviesData: moviesDataReducer
+    }),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

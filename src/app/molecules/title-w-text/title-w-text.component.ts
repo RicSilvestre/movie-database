@@ -7,5 +7,4 @@ import { Component, Input } from '@angular/core';
 })
 export class TitleWTextComponent {
   @Input() title: string = '';
-  @Input() text: string = '';
 }
