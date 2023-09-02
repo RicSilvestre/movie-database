@@ -1,0 +1,11 @@
+.favorites-grid {
+  display: grid;
+  grid-template-columns: minmax(130px, max-content) repeat(auto-fill, 150px) minmax(130px, max-content);
+  gap: 1rem;
+
+  &_card {
+    display: grid;
+    grid-template-rows: minmax(auto, 100%) 1fr;
+    gap: .5rem;
+  }
+}

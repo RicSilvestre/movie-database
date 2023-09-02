@@ -1,4 +1,4 @@
-<button class="btn btn-secondary my-3">
+<button class="btn btn-secondary my-3" (click)="toggleFavoriteMovie()" type="button" [disabled]="favorites == null">
   {{content}}
-  <app-heart class="ms-2 align-middle" [isFilled]="isFavorite"></app-heart>
+  <app-heart class="ms-2" [isFilled]="isFavorite"></app-heart>
 </button>

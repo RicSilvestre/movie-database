@@ -1,0 +1,9 @@
+<section *ngIf="favorites$ | async as favorites" class="mt-5">
+  <app-title title="Favorites" *ngIf="hasFavorites(favorites)" class="text-center"></app-title>
+  <div class="text-center favorites-grid">
+    <div *ngFor="let favorite of favorites | keyvalue" class="favorites-grid_card">
+      <app-poster [src]="favorite.value.poster || ''" [hasPoster]="favorite.value.poster !== 'N/A'"></app-poster>
+      <app-text>{{favorite.value.title || ''}}</app-text>
+    </div>
+  </div>
+</section>
