@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { updateSelectedMovie } from 'src/app/store/movies-data.actions';
+import { updateMoviesList, updateSelectedMovie } from 'src/app/store/movies-data.actions';
 
 @Component({
   selector: 'app-search-bar',
@@ -9,8 +9,9 @@ import { updateSelectedMovie } from 'src/app/store/movies-data.actions';
 })
 export class SearchBarComponent {
   searchTerm: string = '';
-  url = 'http://www.omdbapi.com/?t='
+  isSearching: boolean = false;
   private apiKey = '&apikey=11e92a47';
+  public url = 'http://www.omdbapi.com/?t='
 
   constructor(private store: Store) {}
 
@@ -18,16 +19,14 @@ export class SearchBarComponent {
     return (event.target as HTMLInputElement).value;
   }
 
-  async fetchMoviesData(e: Event): Promise<void> {
-    e.preventDefault();
+  async fetchMoviesData(): Promise<void> {
     try {
+      this.isSearching = true;
       const response = await fetch(this.url + this.searchTerm + this.apiKey );
       const data = await response.json();
-      if (data.Response === "False") {
-        throw new Error(data.Error);
-      }
-      
+      this.isSearching = false;
       const selectedMovie = data;
+      
       this.store.dispatch(updateSelectedMovie({selectedMovie}));
     } catch (error) {
       console.error( error);

@@ -1,5 +1,10 @@
-<form action="" class="search-bar p-4 container-xl" role="search" (submit)="fetchMoviesData($event)">
+<form action="" class="search-bar p-4 container-xl" role="search" (ngSubmit)="fetchMoviesData()">
   <app-input type="search" class="w-sm-100" (input)="searchTerm=getInput($event)" placeholder="Insert a movie title here"></app-input>
   <app-input type="submit" class="w-sm-100" [isButton]="true" buttonModifier="primary" value="Search"></app-input>
   <app-input type="reset" class="w-sm-100" [isButton]="true" buttonModifier="danger" value="Reset"></app-input>
 </form>
+<div class="modal modal-backdrop d-block opacity-50" *ngIf="isSearching">
+  <div class="spinner-border text-light" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div>
