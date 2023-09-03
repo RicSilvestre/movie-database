@@ -12,3 +12,8 @@ export const getSelectedMovie = createSelector(
   getMoviesState,
   (state: MoviesState) => state.selectedMovie
 )
+
+export const getFavoritesList = createSelector(
+  getMoviesState,
+  (state: MoviesState) => state.favoritesList
+)

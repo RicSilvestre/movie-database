@@ -6,3 +6,19 @@
 i {
   display: flex;
 }
+
+svg {
+  transform: translateY(0.5px);
+}
+
+@media (prefers-color-scheme: dark) {
+  svg {
+    stop:nth-child(-n+2) {
+      stop-color: var(--bs-body-color);
+    }
+
+    path {
+      stroke: var(--bs-body-color);
+    }
+  }
+}

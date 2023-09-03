@@ -1,5 +1,9 @@
 @import 'node_modules/bootstrap/scss/bootstrap';
 
+.btn {
+  --bs-btn-font-family: 'Oswald', sans-serif;
+}
+
 :host(.w-sm-100) {
   input {
     width: 100%;

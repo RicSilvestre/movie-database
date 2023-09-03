@@ -3,6 +3,7 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { MovieFavorite, MovieFavoritesList } from 'src/app/store/movies-data.interface';
 import { getFavoritesList } from 'src/app/store/movies-data.selectors';
+import { updateFavorites } from 'src/app/store/movies-data.actions';
 
 @Component({
   selector: 'app-favorites-list',
@@ -16,5 +17,10 @@ export class FavoritesListComponent {
 
   hasFavorites(el: MovieFavoritesList) {
     return Object.keys(el).length !== 0;
+  }
+
+  clearFavorites() {
+    const confirmation = window.confirm("Clear all favorites in the list?");
+    if (confirmation) this.store.dispatch(updateFavorites({ favoritesList: {}}));
   }
 }

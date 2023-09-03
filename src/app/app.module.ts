@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { TitleComponent } from './atoms/title/title.component';
@@ -20,6 +21,8 @@ import { FavoriteButtonComponent } from './molecules/favorite-button/favorite-bu
 import { StoreModule } from '@ngrx/store';
 import { moviesDataReducer } from './store/movies-data.reducer';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { FavoritesListComponent } from './organisms/favorites-list/favorites-list.component';
+import { RatingComponent } from './molecules/rating/rating.component';
 
 @NgModule({
   declarations: [
@@ -38,10 +41,13 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     MainLayoutComponent,
     HomeComponent,
     HeartComponent,
-    FavoriteButtonComponent
+    FavoriteButtonComponent,
+    FavoritesListComponent,
+    RatingComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     StoreModule.forRoot({
       moviesData: moviesDataReducer
     }),

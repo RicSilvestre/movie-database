@@ -1,17 +1,22 @@
 <section class="movie-block" *ngIf="selectedMovie$ | async as selectedMovie">
-  <div>
-    <app-title-w-text title="{{selectedMovie?.Title}}">{{ selectedMovie.Plot }}</app-title-w-text>
-    <!-- code for iteration */ -->
-    <!-- <div *ngFor="let movie of movies$ | async"> -->
-    <div class="movie-block_additional-info">
-      <app-subtitle-w-element subtitle="Actors">{{ selectedMovie.Actors }}</app-subtitle-w-element>
-      <app-subtitle-w-element subtitle="Review">
-        <app-star *ngFor="let star of [].constructor(5)"></app-star>
-      </app-subtitle-w-element>
+  <ng-container *ngIf="selectedMovie.Response === 'True'">
+    <div>
+      <app-title-w-text headingSize="h4" class="movie-block_title-plot" title="{{selectedMovie.Title}}">{{ selectedMovie.Plot }}</app-title-w-text>
+      <!-- code for iteration */ -->
+      <!-- <div *ngFor="let movie of movies$ | async"> -->
+      <div class="movie-block_additional-info">
+        <app-subtitle-w-element subtitle="Actors">{{ selectedMovie.Actors }}</app-subtitle-w-element>
+        <app-subtitle-w-element subtitle="Review">
+          <app-rating [rating]="selectedMovie.imdbRating"></app-rating>
+        </app-subtitle-w-element>
+      </div>
+      <app-favorite-button [favorites]="favorites$ | async" [currentMovie]="selectedMovie" content="Favorite"></app-favorite-button>
     </div>
-    <app-favorite-button content="Favorite"></app-favorite-button>
-  </div>
-  <div>
-    <app-poster src="{{selectedMovie.Poster}}" [hasPoster]="selectedMovie.Poster === 'N/A' ? false : true"></app-poster>
-  </div>
+    <div>
+      <app-poster src="{{selectedMovie.Poster}}" [hasPoster]="selectedMovie.Poster === 'N/A' ? false : true"></app-poster>
+    </div>
+  </ng-container>
+  <app-title-w-text title="Error" class="text-center" *ngIf="selectedMovie.Response === 'False'">
+    {{ selectedMovie.Error }}
+  </app-title-w-text>
 </section>

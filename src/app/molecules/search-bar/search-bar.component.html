@@ -1,4 +1,4 @@
-<form action="" class="search-bar p-4 container-xl" role="search" (ngSubmit)="fetchMoviesData()">
+<form action="" class="search-bar p-4 container-xl mb-4" role="search" (ngSubmit)="fetchMoviesData()">
   <app-input type="search" class="w-sm-100" (input)="searchTerm=getInput($event)" placeholder="Insert a movie title here"></app-input>
   <app-input type="submit" class="w-sm-100" [isButton]="true" buttonModifier="primary" value="Search"></app-input>
   <app-input type="reset" class="w-sm-100" [isButton]="true" buttonModifier="danger" value="Reset"></app-input>

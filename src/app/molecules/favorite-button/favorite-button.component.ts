@@ -25,7 +25,6 @@ export class FavoriteButtonComponent implements OnChanges {
   }
 
   toggleFavoriteMovie(): void {
-    console.log(this.currentMovie.imdbID);
     const id = this.currentMovie.imdbID as string;
     const { Title, Poster } = this.currentMovie;
     const isFavorite = this.isFavorite;

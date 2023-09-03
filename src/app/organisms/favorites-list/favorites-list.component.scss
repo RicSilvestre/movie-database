@@ -1,11 +1,29 @@
+@import 'node_modules/bootstrap/scss/bootstrap';
+
 .favorites-grid {
   display: grid;
-  grid-template-columns: minmax(130px, max-content) repeat(auto-fill, 150px) minmax(130px, max-content);
   gap: 1rem;
+  // display: flex;
+  // flex-wrap: wrap;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+
+  @include media-breakpoint-up(md) {
+    grid-template-columns: repeat(auto-fill, minmax(max(130px, 160px), 1fr));
+  }
 
   &_card {
     display: grid;
-    grid-template-rows: minmax(auto, 100%) 1fr;
+    grid-template-rows: minmax(220px, 100%) 55px;
     gap: .5rem;
+    // flex: 1 1 130px;
+    // max-width: 150px;
+
+    &-frame {
+      padding: 7px;
+      background-color: var(--bs-body-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
   }
 }

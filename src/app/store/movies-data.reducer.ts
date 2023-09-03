@@ -1,8 +1,10 @@
 import { createReducer, on } from "@ngrx/store";
-import { updateMoviesList, updateSelectedMovie } from "./movies-data.actions";
+import { updateMoviesList, updateSelectedMovie, updateFavorites } from "./movies-data.actions";
 import { MoviesState } from "./movies-data.interface";
 
-export const initialState: MoviesState = {};
+export const initialState: MoviesState = {
+  favoritesList: {}
+};
 
 export const moviesDataReducer = createReducer(
   initialState,
@@ -13,5 +15,9 @@ export const moviesDataReducer = createReducer(
   on(updateSelectedMovie, (state, {selectedMovie}) => ({
     ...state,
     selectedMovie
+  })),
+  on(updateFavorites, (state, {favoritesList}) => ({
+    ...state,
+    favoritesList
   }))
 )

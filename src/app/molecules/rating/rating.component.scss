@@ -1,0 +1,10 @@
+@import 'node_modules/bootstrap/scss/bootstrap';
+
+:host {
+  display: flex;
+  justify-content: center;
+
+  @include media-breakpoint-up(md) {
+    justify-content: start;
+  }
+}

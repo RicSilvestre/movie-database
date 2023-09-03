@@ -1,0 +1,26 @@
+@import 'node_modules/bootstrap/scss/bootstrap';
+
+:host {
+  max-width: 600px;
+  display: block;
+}
+
+:host-context(.movie-search-heading) {
+  :host {
+    margin: auto;
+  }
+}
+
+:host-context(.movie-block_title-plot) {
+  @include media-breakpoint-down(md) {
+    :host {
+      margin: auto;   
+    }
+  }
+}
+
+p.isTruncated {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
