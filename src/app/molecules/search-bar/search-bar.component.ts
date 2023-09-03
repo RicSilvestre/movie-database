@@ -20,6 +20,7 @@ export class SearchBarComponent {
   }
 
   async fetchMoviesData(): Promise<void> {
+    if (this.searchTerm === '') return;
     this.isSearching = true;
     const response = await fetch(this.url + this.searchTerm + this.apiKey );
     const data = await response.json();

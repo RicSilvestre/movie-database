@@ -16,7 +16,7 @@
       <app-poster src="{{selectedMovie.Poster}}" [hasPoster]="selectedMovie.Poster === 'N/A' ? false : true"></app-poster>
     </div>
   </ng-container>
-  <app-title-w-text title="Error" class="text-center" *ngIf="selectedMovie.Response === 'False'">
+  <app-title-w-text title="Error" class="text-center movie-block_error" *ngIf="selectedMovie.Response === 'False'">
     {{ selectedMovie.Error }}
   </app-title-w-text>
 </section>
