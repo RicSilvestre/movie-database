@@ -9,5 +9,4 @@ export class StarComponent {
   @Input() currentRating?: string = 'N/A';
   @Input() gradientPct: string = '100%';
   @Input() starType: string = "filled";
-
 }

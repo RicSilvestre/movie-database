@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { MovieFavorite, MovieFavoritesList } from 'src/app/store/movies-data.interface';
+import { MovieFavoritesList } from 'src/app/store/movies-data.interface';
 import { getFavoritesList } from 'src/app/store/movies-data.selectors';
 import { updateFavorites } from 'src/app/store/movies-data.actions';
 

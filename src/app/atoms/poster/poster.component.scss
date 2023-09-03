@@ -23,4 +23,20 @@ img {
       transform: translate(-50%, -50%);
     }
   }
+
+}
+
+:host-context(.favorites-grid_card) {
+  img.placeholder-image {
+    
+      &, &::before {
+        max-width: 130px;
+        max-height: 220px;
+        background-color: var(--body-color);
+      }
+
+      &::after {
+        color: var(--bs-body-bg);
+      }
+    }
 }

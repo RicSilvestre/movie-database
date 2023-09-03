@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { Store, select } from '@ngrx/store';
-import { MovieSearchResult, MovieTitle } from 'src/app/store/movies-data.interface';
-import { getSearchResults, getSelectedMovie } from 'src/app/store/movies-data.selectors';
+import { Component } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { MovieTitle, MovieFavoritesList } from 'src/app/store/movies-data.interface';
+import { getFavoritesList, getSelectedMovie } from 'src/app/store/movies-data.selectors';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -11,5 +11,7 @@ import { Observable } from 'rxjs';
 })
 export class MovieBlockComponent {
   constructor(private store: Store) {};
- selectedMovie$: Observable<MovieTitle | undefined> = this.store.select(getSelectedMovie)
+
+  selectedMovie$: Observable<MovieTitle | undefined> = this.store.select(getSelectedMovie);
+  favorites$: Observable<MovieFavoritesList | undefined> = this.store.select(getFavoritesList);
 }

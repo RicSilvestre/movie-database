@@ -1,4 +1,4 @@
 <app-text *ngIf="rating === 'N/A'">N/A</app-text>
-<app-star *ngFor='let star of [].constructor(filledStars)' [starType]="'filled'"></app-star>
-<app-star *ngIf="partialStar !== 0 && rating !== 'N/A'" [starType]="'partial'" [gradientPct]="gradientPct"></app-star>
-<app-star *ngFor="let emptyStar of [].constructor(emptyStars)" [starType]="'empty'"></app-star>
+<app-star *ngFor='let star of [].constructor(filledStars)' starType="filled"></app-star>
+<app-star *ngIf="partialStar !== 0 && rating !== 'N/A'" starType="partial" [gradientPct]="gradientPct"></app-star>
+<app-star *ngFor="let emptyStar of [].constructor(emptyStars)" starType="empty"></app-star>

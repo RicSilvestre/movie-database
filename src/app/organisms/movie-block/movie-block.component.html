@@ -1,9 +1,9 @@
 <section class="movie-block" *ngIf="selectedMovie$ | async as selectedMovie">
   <ng-container *ngIf="selectedMovie.Response === 'True'">
     <div>
-      <app-title-w-text headingSize="h4" class="movie-block_title-plot" title="{{selectedMovie.Title}}">{{ selectedMovie.Plot }}</app-title-w-text>
-      <!-- code for iteration */ -->
-      <!-- <div *ngFor="let movie of movies$ | async"> -->
+      <app-title-w-text headingSize="h4" class="movie-block_title-plot" title="{{selectedMovie.Title}}">
+        {{ selectedMovie.Plot }}
+      </app-title-w-text>
       <div class="movie-block_additional-info">
         <app-subtitle-w-element subtitle="Actors">{{ selectedMovie.Actors }}</app-subtitle-w-element>
         <app-subtitle-w-element subtitle="Review">

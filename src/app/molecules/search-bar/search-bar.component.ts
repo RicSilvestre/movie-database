@@ -20,17 +20,12 @@ export class SearchBarComponent {
   }
 
   async fetchMoviesData(): Promise<void> {
-    try {
-      this.isSearching = true;
-      const response = await fetch(this.url + this.searchTerm + this.apiKey );
-      const data = await response.json();
-      this.isSearching = false;
-      const selectedMovie = data;
-      
-      this.store.dispatch(updateSelectedMovie({selectedMovie}));
-    } catch (error) {
-      console.error( error);
-    }
+    this.isSearching = true;
+    const response = await fetch(this.url + this.searchTerm + this.apiKey );
+    const data = await response.json();
+    this.isSearching = false;
+    const selectedMovie = data;
+    this.store.dispatch(updateSelectedMovie({selectedMovie}));
   }
 }
 

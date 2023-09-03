@@ -1,8 +1,6 @@
-import { Component, Input, OnChanges, OnInit } from '@angular/core';
-import { Store, select } from '@ngrx/store';
-import { MovieFavorite, MovieSearchResult, MovieTitle, MovieFavoritesList } from 'src/app/store/movies-data.interface';
-import { getFavoritesList, getSearchResults, getSelectedMovie } from 'src/app/store/movies-data.selectors';
-import { Observable } from 'rxjs';
+import { Component, Input, OnChanges } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { MovieTitle, MovieFavoritesList } from 'src/app/store/movies-data.interface';
 import { updateFavorites } from 'src/app/store/movies-data.actions';
 
 @Component({
